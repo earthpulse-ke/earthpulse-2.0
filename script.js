@@ -368,3 +368,17 @@ bubbles.forEach(bubble => {
     document.addEventListener("mouseup", endDrag);
     document.addEventListener("touchend", endDrag);
 });
+
+class GalleryImage extends HTMLElement {
+    connectedCallback() {
+        const width = this.getAttribute("width");
+        const height = this.getAttribute("height");
+        const imgNumber = this.getAttribute("imgNumber");
+        this.innerHTML = 
+        `
+        <img width="${width}" height="${height}" src="resources/gallery/img${imgNumber}.jpeg">
+        `
+    }
+}
+
+customElements.define("g-image", GalleryImage);
